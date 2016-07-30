@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - abonent_schema@localhost" uuid="37fb1962-e9af-446f-bdca-d03cbdb843c7">
+    <database-info product="MySQL" version="5.6.27-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="abonent_schema"/>
+    <table name="internet_characteristic" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="speed" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user" columns="user_id" ref-table="users" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="ip_telefony_characteristic" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="minutes_in_rouming" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="videocall" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="userid" columns="user_id" ref-table="users" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="payments" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="service_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="paid" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="price_rus" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="service_id" columns="service_id" ref-table="services" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user_id" columns="user_id" ref-table="users" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="service_id_idx" unique="false" columns="service_id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="services" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="service" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="service_rus" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="service_id" table="payments" schema="" catalog="abonent_schema" columns="service_id"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+    </table>
+    <table name="television_characteristic" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="count_chanels" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="usr_id" columns="user_id" ref-table="users" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="users" schema="" catalog="abonent_schema" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="login" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="admin" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="balance" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="blocked" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="balance_rus" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user" table="internet_characteristic" schema="" catalog="abonent_schema" columns="user_id"/>
+      <exported-key name="userid" table="ip_telefony_characteristic" schema="" catalog="abonent_schema" columns="user_id"/>
+      <exported-key name="user_id" table="payments" schema="" catalog="abonent_schema" columns="user_id"/>
+      <exported-key name="usr_id" table="television_characteristic" schema="" catalog="abonent_schema" columns="user_id"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="login_UNIQUE" unique="true" columns="login"/>
+    </table>
+  </data-source>
+</component>
