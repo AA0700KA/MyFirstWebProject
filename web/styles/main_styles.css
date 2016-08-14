@@ -1,0 +1,44 @@
+body {
+    background: url("../images/air_gradient.jpg") repeat-x #93DEF3;
+    color: #3E9ED8;
+}
+
+.service_data .service_name {
+    font-size: 120%;
+    color: #fff;
+    padding: 10px;
+    display: inline-block;
+    background-color: #3E9ED8;
+    text-align: center;
+    width: 98%;
+}
+
+#service_block {
+    width: 50%;
+    border: 1px dashed black;
+    margin: 20px auto;
+}
+
+.service_data input[type=submit] {
+    padding: 10px;
+    background-color: lightblue;
+    border: 1px solid #3E9ED8;
+    color: #3E9ED8;
+    width: 20%;
+}
+
+.service_data input[type=number] {
+    width: 20%;
+    padding: 5px 10px;
+    border: 1px solid #3E9ED8;
+}
+
+.service_data .label {
+    color: #3E9ED8;
+}
+
+#connect {
+    background-color: #fff;
+    margin: 20px auto;
+    width: 50%;
+}

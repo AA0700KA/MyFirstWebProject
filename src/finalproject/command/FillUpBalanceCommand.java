@@ -5,7 +5,9 @@ import finalproject.dao.DAOFactory;
 import finalproject.dao.UserDAO;
 import finalproject.entity.users.Abonent;
 import finalproject.entity.users.User;
+import org.apache.log4j.Logger;
 
+import java.sql.SQLException;
 import java.util.Locale;
 
 /**
@@ -28,7 +30,7 @@ public class FillUpBalanceCommand implements Command {
 
     @Override
     public String execute(IRequestWrapper wrapper, boolean isTest) {
-        int balance = Integer.parseInt(wrapper.getParameter("update_balance"));
+        double balance = Double.valueOf(wrapper.getParameter("update_balance"));
         User user = (User) wrapper.getSession().getAttribute("user");
         Locale locale = Locale.getDefault();
 
@@ -38,13 +40,16 @@ public class FillUpBalanceCommand implements Command {
         factory.setTest(isTest);
         UserDAO userDAO = factory.getUserDAO();
 
-        if (locale.getCountry().equals("EN")) {
-            userDAO.updateBalance(user, balance);
-        } else {
-            userDAO.updateBalance(user, balance/15);
-        }
+
+            if (locale.getCountry().equals("EN")) {
+                userDAO.updateBalance(user, balance, balance * 15);
+
+            } else {
+                userDAO.updateBalance(user, balance / 15, balance);
+            }
+
 
         wrapper.setAttribute("balance", true);
-        return "abonent-page/abonentPage.jsp";
+        return "abonent-page/fill_up_balance.jsp";
     }
 }

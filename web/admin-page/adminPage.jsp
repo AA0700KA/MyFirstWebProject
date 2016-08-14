@@ -15,18 +15,16 @@
 
 
 <div align="center">
-    <a href="/forward?action=main"><img src="../header_internet.png" alt="img"/></a>
+    <a href="/forward?action=main"><img src="../images/header_internet.png" alt="img" style="width: 80%"/></a>
 </div>
-    <div align="center">
-    <table>
+    <div align="center" style="margin-top: 20px">
+    <table style="background-color: #3E9ED8; width: 80%">
         <tr>
-            <td><a href="/admin-page/registration.jsp"><fmt:message key="admin.add.user" /> </a></td>
-            <td><a href="/forwardUsers?action=users"><fmt:message key="admin.all.users" /> </a></td>
-            <td><a href="/forwardPayments?action=payments"> <fmt:message key="admin.payments" /> </a> </td>
+            <td style="text-align: center"><a href="/admin-page/registration.jsp" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="admin.add.user" /> </a></td>
+            <td style="text-align: center"><a href="/forwardUsers?action=users" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="admin.all.users" /> </a></td>
+            <td style="text-align: center"><a href="/forwardPayments?action=payments" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"> <fmt:message key="admin.payments" /> </a></td>
         </tr>
     </table>
     </div>
-    <c:if test="${requestScope.registerResponse}">
-        <p><fmt:message key="register.succsessful" /> </p>
-    </c:if>
+
 

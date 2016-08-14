@@ -2,6 +2,8 @@ package finalproject.entity.services;
 
 import finalproject.entity.services.tarifs.InternetTarif;
 
+import java.util.ResourceBundle;
+
 /**
  * Entity internet, extends service{@link Service}
  *
@@ -14,6 +16,7 @@ public class Internet extends Service {
      * Speed column in table internet_characteristic
      *
      */
+
     private int speed;
 
     public int getSpeed() {
@@ -29,7 +32,10 @@ public class Internet extends Service {
 
     @Override
     public String getCharacteristics() {
-        return "Speed: " + speed + " Mbit/s";
+        ResourceBundle bundle = ResourceBundle.getBundle("finalproject/properties/text");
+        String speedTxt = bundle.getString("characteristic.internet.speed");
+        String metricTxt = bundle.getString("characteristic.internet.metric");
+        return speedTxt + " " + speed + " " +  metricTxt;
     }
 
 }

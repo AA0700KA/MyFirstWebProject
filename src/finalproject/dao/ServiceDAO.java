@@ -73,7 +73,7 @@ public class ServiceDAO extends AbstractDAO {
             Map<Integer, Service> serviceMap = new HashMap<>();
 
             try(Connection connection = getConnectionManager().getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT s.id, s.service FROM services s INNER JOIN payments p ON p.service_id=s.id INNER JOIN users u ON p.user_id = u.id WHERE u.id=?")) {
+                PreparedStatement preparedStatement = connection.prepareStatement(getResourceBundle().getString("getServicesMapByUser"))) {
                 preparedStatement.setInt(1, user.getId());
 
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -106,6 +106,7 @@ public class ServiceDAO extends AbstractDAO {
             LOGGER.info("getServicesMap " + user.getLogin() + " succsessfull");
             return  serviceMap;
         }
+
         return null;
     }
 

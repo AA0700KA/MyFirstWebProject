@@ -15,7 +15,7 @@ import finalproject.exceptions.NotCurrentServiceException;
 public class TelevisionTarif implements Tarif {
 
     @Override
-    public int getPrice(Service service) {
+    public double getPrice(Service service) {
         if (service instanceof Television) {
             int countChanels = ((Television)service).getCountChanels();
 

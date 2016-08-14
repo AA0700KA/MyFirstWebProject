@@ -45,8 +45,8 @@ public class PaymentDAO extends AbstractDAO {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO payments(user_id, service_id, price, price_rus) VALUES(?,?,?,?)")) {
              preparedStatement.setInt(1, user.getId());
              preparedStatement.setInt(2, service.getId());
-             preparedStatement.setInt(3, service.getPrice()/15);
-             preparedStatement.setInt(4, service.getPrice());
+             preparedStatement.setDouble(3, service.getPrice()/15);
+             preparedStatement.setDouble(4, service.getPrice());
 
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -126,7 +126,7 @@ public class PaymentDAO extends AbstractDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String serviceName = resultSet.getString(2);
-                int price = resultSet.getInt(3);
+                double price = resultSet.getDouble(3);
                 boolean paid = resultSet.getBoolean(4);
                 Service service = ServiceFactory.getService(id);
                 service.setName(serviceName);
@@ -155,7 +155,7 @@ public class PaymentDAO extends AbstractDAO {
             String userName = resultSet.getString(3);
             int serviceId = resultSet.getInt(4);
             String serviceName = resultSet.getString(5);
-            int price = resultSet.getInt(6);
+            double price = resultSet.getDouble(6);
             boolean paidStatus = resultSet.getBoolean(7);
             Abonent abonent = new Abonent();
             abonent.setId(userId);

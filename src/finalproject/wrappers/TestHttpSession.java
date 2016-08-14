@@ -17,6 +17,10 @@ import java.util.Map;
 
 public class TestHttpSession implements HttpSession {
 
+    /**
+     * session atributes map
+     */
+
     private Map<String, Object> attributes;
 
     public TestHttpSession() {
@@ -37,6 +41,10 @@ public class TestHttpSession implements HttpSession {
     public Object getAttribute(String s) {
         return attributes.get(s);
     }
+
+    /**
+     * clear session attributes
+     */
 
     @Override
     public void invalidate() {

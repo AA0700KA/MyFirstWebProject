@@ -3,6 +3,8 @@ package finalproject.entity.services;
 
 import finalproject.entity.services.tarifs.IPTelefonyTarif;
 
+import java.util.ResourceBundle;
+
 /**
  * IPTelefony extends service {@link Service}
  *
@@ -43,7 +45,10 @@ public class IPTelefony extends Service {
     @Override
     public String getCharacteristics() {
         String videocallStatus = (videoCall) ? "+" : "-";
-        return "Minutes in rouming: " + roumingMinutes + "\nVideocall: " + videocallStatus;
+        ResourceBundle bundle = ResourceBundle.getBundle("finalproject/properties/text");
+        String minutesTxt = bundle.getString("main.minutes.in.rouming");
+        String videocallTxt = bundle.getString("main.videocall");
+        return minutesTxt + " " + roumingMinutes + "\n" + videocallTxt + " " + videocallStatus;
     }
 
 }

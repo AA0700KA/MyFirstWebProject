@@ -23,7 +23,7 @@ public class UserFactory {
      * @return user object
      */
 
-    public static User getUser(boolean isAdmin, int balance, boolean isBlocked) {
+    public static User getUser(boolean isAdmin, double balance, boolean isBlocked) {
         if (isAdmin) {
             return new Administrator();
         }

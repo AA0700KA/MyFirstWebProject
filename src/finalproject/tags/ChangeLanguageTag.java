@@ -6,6 +6,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -67,15 +68,20 @@ public class ChangeLanguageTag extends TagSupport implements DynamicAttributes {
             path = "/forward";
         }
 
+        ResourceBundle bundle = ResourceBundle.getBundle("finalproject/properties/text");
+        String englishWordTxt = bundle.getString("language.english");
+        String russianWordTxt = bundle.getString("language.russian");
+        String choseWordTxt = bundle.getString("language.chose");
+
         stringBuilder.append("<div align=\"center\" id = \"language-form\">")
                 .append("<form action=\"").append(path).append("\" method=\"post\">")
                 .append("<select name=\"language\">")
-                .append("<option value=\"en-EN\">English</option>")
-                .append("<option value=\"ru-RU\">Русский</option>")
+                .append("<option value=\"en-EN\">").append(englishWordTxt).append("</option>")
+                .append("<option value=\"ru-RU\">").append(russianWordTxt).append("</option>")
                 .append("</select>")
                 .append("<input type=\"hidden\" name=\"action\" value=\"change_language\"/>")
                 .append("<input type=\"hidden\" name=\"this_path\" value=\"").append(url).append("\"/>")
-                .append("<input type=\"submit\" name=\"submit\" value=\"Chose\"/>")
+                .append("<input type=\"submit\" name=\"submit\" style=\"padding: 10px;  background-color: lightblue;  border: 1px solid #3E9ED8;  color: #3E9ED8; margin-left: 5px\" value=\"").append(choseWordTxt).append("\"/>")
                 .append("</form>")
                 .append("</div>");
 

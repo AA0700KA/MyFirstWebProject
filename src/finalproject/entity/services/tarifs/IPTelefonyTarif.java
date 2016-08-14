@@ -15,7 +15,7 @@ import finalproject.exceptions.NotCurrentServiceException;
 public class IPTelefonyTarif implements Tarif {
 
     @Override
-    public int getPrice(Service service) {
+    public double getPrice(Service service) {
         if (service instanceof IPTelefony) {
             boolean videoCall = ((IPTelefony) service).isVideoCall();
             int roumingMinutes = ((IPTelefony) service).getRoumingMinutes();

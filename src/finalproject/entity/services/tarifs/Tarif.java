@@ -19,6 +19,6 @@ public interface Tarif {
      * @return price of service
      */
 
-    int getPrice(Service service);
+    double getPrice(Service service);
 
 }

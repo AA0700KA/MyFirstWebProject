@@ -7,5 +7,5 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div align="center">
-    <a href="/forward?action=main"><img src="/Internet-Header.jpg" alt="img"/></a>
+    <a href="/forward?action=main"><img src="/images/Internet-Header.jpg" alt="img" style="width: 50%"/></a>
 </div>

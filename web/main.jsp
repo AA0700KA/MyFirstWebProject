@@ -14,37 +14,36 @@
 <fmt:setBundle basename="finalproject.properties.text" />
 <html>
 <head>
-    <title>Main page</title>
+    <title><fmt:message key="main.main.page" /> </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="styles/main_styles.css" type="text/css" />
 </head>
 <body>
+   <mytag:changelanguage url="/forward?action=main" />
+   <jsp:include page="main_discription.jsp" />
 
-<mytag:changelanguage url="/forward?action=main" />
-
-   <div align="right">
-       <p>${sessionScope.get("user").name}</p>
-       <c:if test="${not empty sessionScope.user}">
-           <p><a href="/forward?action=exit"><fmt:message key="main.exit"/> </a> </p>
-       </c:if>
-       <p><a href="/forward?action=myaccount"><fmt:message key="main.my.account"/> </a></p>
-   </div>
-
-<jsp:include page="main_image.jsp"/>
-
-
-   <div align="center">
-       <table>
-           <tr>
-               <td><a href="forward?action=main"><fmt:message key="main.main.services" /></a></td>
-               <td><a href="#"><fmt:message key="main.connect" /> </a></td>
-           </tr>
-       </table>
-   </div>
-   <div align="center">
+   <div align="center" id="service_block">
 
        <c:forEach items="${services}" var="service">
-           <div>
-               <p>${service.name}</p>
+
+           <jstl:choose>
+               <jstl:when test="${service.id eq 1}">
+                   <jstl:set value="/images/Internet-marketing1.jpg" var="img_service" />
+               </jstl:when>
+               <jstl:when test="${service.id eq 2}">
+                   <jstl:set value="/images/telefony.png" var="img_service" />
+               </jstl:when>
+               <jstl:when test="${service.id eq 3}">
+                   <jstl:set value="/images/ip-telefony.png" var="img_service" />
+               </jstl:when>
+               <jstl:otherwise>
+                   <jstl:set value="/images/television.jpg" var="img_service" />
+               </jstl:otherwise>
+           </jstl:choose>
+
+           <div class="service_data">
+               <p class="service_name">${service.name}</p>
+               <p><img src="${img_service}" alt="service" /></p>
 
                <jstl:if test="${not empty sessionScope.user and not sessionScope.admin and service.id != 2}">
 
@@ -56,20 +55,20 @@
                                <input type="hidden" name="action" value="add_service"/>
 
                                <jstl:if test="${service.id eq 1}">
-                                   <p><fmt:message key="main.internet.speed" /></p>
+                                   <p class="label"><fmt:message key="main.internet.speed" /></p>
                                    <input type="number" name="speed" value="10"/>
                                </jstl:if>
 
                                <jstl:if test="${service.id eq 3}">
-                                   <p><fmt:message key="main.videocall" /></p>
+                                   <p class="label"><fmt:message key="main.videocall" /></p>
                                    <input type="checkbox" name="videocall"/>
-                                   <p><fmt:message key="main.minutes.in.rouming" /></p>
+                                   <p class="label"><fmt:message key="main.minutes.in.rouming" /></p>
                                    <input type="number" name="rouming-minutes" value="5"/>
 
                                </jstl:if>
 
                                <jstl:if test="${service.id eq 4}">
-                                   <p><fmt:message key="main.count.channels" /></p>
+                                   <p class="label"><fmt:message key="main.count.channels" /></p>
                                    <p><input type="number" name="count_channels" value="10"/></p>
                                </jstl:if>
                                <fmt:message key="main.add" var="add" />

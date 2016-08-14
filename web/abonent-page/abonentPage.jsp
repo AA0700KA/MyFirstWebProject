@@ -13,26 +13,17 @@
 
 
 <div align="center">
-    <a href="/forward?action=main"><img src="../perth-best-internet-HEADER.jpg" alt="img"/></a>
+    <a href="/forward?action=main"><img src="../images/perth-best-internet-HEADER.jpg" alt="img" style="width: 80%"/></a>
 </div>
-    <div align="center">
-        <table>
+    <div align="center" style="margin-top: 20px">
+        <table style ="width:80%; background-color: #3E9ED8;">
             <tr>
-                <td><a href="/forwardMyPayments?action=my_payments"><fmt:message key="abonent.my.payments" /> </a></td>
-                <td><a href="/forward?action=my_data"><fmt:message key="abonent.my.data" /> </a> </td>
-                <td><a href="/abonent-page/fill_up_balance.jsp"><fmt:message key="abonent.fill.balance" /> </a> </td>
-                <td><a href="/forward?action=main"><fmt:message key="abonent.add.services" /> </a></td>
+                <td style="text-align: center;"><a href="/forwardMyPayments?action=my_payments" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="abonent.my.payments" /> </a></td>
+                <td style="text-align: center;"><a href="/forward?action=my_data" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="abonent.my.data" /> </a> </td>
+                <td style="text-align: center;"><a href="/abonent-page/fill_up_balance.jsp" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="abonent.fill.balance" /> </a> </td>
+                <td style="text-align: center;"><a href="/forward?action=main" style="font-size: 120%;text-decoration: none; color: #fff; padding: 10px; display: inline-block; background-color: #3E9ED8"><fmt:message key="abonent.add.services" /> </a></td>
             </tr>
         </table>
 
-            <c:if test="${requestScope.pay}">
-                <p><fmt:message key="pay.succsessful" /> </p>
-            </c:if>
-            <c:if test="${requestScope.notPay}">
-                <p><fmt:message key="pay.not.enought" /> </p>
-            </c:if>
-            <c:if test="${requestScope.balance}">
-                <p><fmt:message key="balance.updated" /> </p>
-            </c:if>
     </div>
 

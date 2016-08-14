@@ -51,7 +51,7 @@ public class UserDAO extends AbstractDAO {
                 String passwordUser = resultSet.getString(3);
                 String name = resultSet.getString(4);
                 boolean isAdmin = resultSet.getBoolean(5);
-                int balance = resultSet.getInt(6);
+                double balance = resultSet.getDouble(6);
                 boolean blocked = resultSet.getBoolean(7);
                 User user = UserFactory.getUser(isAdmin, balance, blocked);
                 user.setId(id);
@@ -105,7 +105,7 @@ public class UserDAO extends AbstractDAO {
                 int id = resultSet.getInt(1);
                 String login = resultSet.getString(2);
                 String name = resultSet.getString(3);
-                int balance = resultSet.getInt(4);
+                double balance = resultSet.getDouble(4);
                 boolean blocked = resultSet.getBoolean(5);
                 Abonent user = new Abonent();
                 user.setId(id);
@@ -125,29 +125,31 @@ public class UserDAO extends AbstractDAO {
     }
 
     /**
-     * upadte user balance
+     * upadate user balance
      *
      * @param user
      *            by user id {@link User}
-     * @param value
-     *            value added to user balance
+     * @param valueEn
+     *            value added to user balance english locale
+     * @param valueRus
+     *            value added to user balance rus locale
      *
      */
 
-    public void updateBalance(User user, int value) {
+    public void updateBalance(User user, double valueEn, double valueRus) {
         try(Connection connection = getConnectionManager().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET balance=balance+?, balance_rus=balance_rus+? WHERE id=?")) {
 
-            preparedStatement.setInt(1, value);
-            preparedStatement.setInt(2, value*15);
+            preparedStatement.setDouble(1, valueEn);
+            preparedStatement.setDouble(2, valueRus);
             preparedStatement.setInt(3, user.getId());
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.error("updateBalance " + user.getLogin() + " +" + value, e);
+            LOGGER.error("updateBalance " + user.getLogin() + " +" + valueEn + " and " + valueRus, e);
         }
 
-        LOGGER.info("upadateBalance " + user.getLogin() + " value: " + value + " succsessfull");
+        LOGGER.info("upadateBalance " + user.getLogin() + " value: " + valueEn + " and " + valueRus + " succsessfull");
     }
 
     /**

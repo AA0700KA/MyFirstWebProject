@@ -1,6 +1,8 @@
 package finalproject.entity.services;
 
 
+import java.util.ResourceBundle;
+
 /**
  * Television class extends {@link Service}
  *
@@ -26,7 +28,9 @@ public class Television extends Service {
 
     @Override
     public String getCharacteristics() {
-        return "Count chanels: " + countChanels;
+        ResourceBundle bundle = ResourceBundle.getBundle("finalproject/properties/text");
+        String countChannelsTxt = bundle.getString("main.count.channels");
+        return countChannelsTxt + " " + countChanels;
     }
 
 }

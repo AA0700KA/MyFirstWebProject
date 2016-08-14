@@ -14,6 +14,7 @@
 <head>
     <title><fmt:message key="error"/> </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="styles/main_styles.css" type="text/css" />
 </head>
 <body>
    <h1><fmt:message key="error.massage"/></h1>

@@ -1,0 +1,33 @@
+body {
+    background: url("../images/air_gradient.jpg") repeat-x #93DEF3;
+    color: #3E9ED8;
+}
+
+#auth input[type=submit] {
+    padding: 10px;
+    background-color: lightblue;
+    border: 1px solid #3E9ED8;
+    color: #3E9ED8;
+    width: 5%;
+    margin-top: 20px;
+}
+
+#auth input[type=text] {
+    width: 120%;
+    padding: 5px 10px;
+    border: 1px solid #3E9ED8;
+}
+
+#auth input[type=password] {
+    width: 120%;
+    padding: 5px;
+    border: 1px solid #3E9ED8;
+}
+
+#auth {
+    margin-top: 20px;
+}
+
+.incorrect {
+    color: #3E9ED8;
+}

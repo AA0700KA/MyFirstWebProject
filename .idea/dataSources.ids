@@ -30,9 +30,9 @@
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="service_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="DECIMAL" precision="11" scale="2" nullable="true" jdbcType="3" def="MC4wMA=="/>
       <column name="paid" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
-      <column name="price_rus" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price_rus" sqlType="DECIMAL" precision="11" scale="2" nullable="true" jdbcType="3"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="service_id" columns="service_id" ref-table="services" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="user_id" columns="user_id" ref-table="users" ref-schema="" ref-catalog="abonent_schema" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
@@ -63,9 +63,9 @@
       <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="admin" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
-      <column name="balance" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="balance" sqlType="DECIMAL" precision="11" scale="2" nullable="true" jdbcType="3"/>
       <column name="blocked" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
-      <column name="balance_rus" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="balance_rus" sqlType="DECIMAL" precision="11" scale="2" nullable="true" jdbcType="3"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="user" table="internet_characteristic" schema="" catalog="abonent_schema" columns="user_id"/>
       <exported-key name="userid" table="ip_telefony_characteristic" schema="" catalog="abonent_schema" columns="user_id"/>

@@ -32,7 +32,7 @@ public class PayServiceCommand implements Command {
     @Override
     public String execute(IRequestWrapper wrapper, boolean isTest) {
         User user = (User) wrapper.getSession().getAttribute("user");
-        int price = Integer.parseInt(wrapper.getParameter("price"));
+        double price = Double.valueOf(wrapper.getParameter("price"));
         int serviceId = Integer.parseInt(wrapper.getParameter("service_id"));
         Map<Integer, Service> services = (Map<Integer, Service>) wrapper.getSession().getAttribute("services");
         System.out.println(services);
@@ -41,26 +41,27 @@ public class PayServiceCommand implements Command {
         DAOFactory factory = DAOFactory.getInstance();
         factory.setTest(isTest);
         UserDAO userDAO = factory.getUserDAO();
-        int userBalance = ((Abonent)user).getBalance();
+        double userBalance = ((Abonent)user).getBalance();
 
         if (userBalance >= price) {
             Locale locale = Locale.getDefault();
             ((Abonent) user).setBalance(-price);
 
             if (locale.getCountry().equals("EN")) {
-                userDAO.updateBalance(user, -price);
+                userDAO.updateBalance(user, -price, -price*15);
             } else {
-                userDAO.updateBalance(user, -price/15);
+                userDAO.updateBalance(user, -price/15, -price);
             }
 
             PaymentDAO paymentDAO = factory.getPaymentDAO();
             paymentDAO.payService(user, service);
             wrapper.setAttribute("pay", true);
+
         } else {
             wrapper.setAttribute("notPay", true);
         }
 
-        return "abonent-page/abonentPage.jsp";
+        return "abonent-page/user_payments.jsp";
     }
 
 }

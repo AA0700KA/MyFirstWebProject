@@ -16,7 +16,7 @@ public class SimpleTelefony extends Service{
      * Standart price simple telefony{@link SimpleTelefony}
      */
 
-    private int price = 15;
+    private double price = 15;
 
     /**
      * Overrade method price
@@ -24,7 +24,7 @@ public class SimpleTelefony extends Service{
      * @return price equal 15
      */
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

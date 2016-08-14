@@ -43,8 +43,14 @@ public class BadRequestFilter implements Filter {
          else if (!path.equals("/forward") && !path.equals("/forwardUsers")
                 && !path.equals("/forwardPayments") && !path.equals("/forwardMyPayments")
                 && !path.equals("/abonent-page/fill_up_balance.jsp") && !path.equals("/admin-page/registration.jsp")
-                && !path.equals("/Internet-Header.jpg") && !path.equals("/header_internet.png") && !path.equals("/favicon.ico")
-                && !path.equals("/perth-best-internet-HEADER.jpg") && !path.equals("/main.jsp")) {
+                && !path.equals("/images/Internet-Header.jpg") && !path.equals("/images/header_internet.png") && !path.equals("/favicon.ico")
+                && !path.equals("/images/perth-best-internet-HEADER.jpg") && !path.equals("/main.jsp")
+                && !path.equals("/connect_page.jsp") && !path.equals("/styles/main_styles.css")
+                && !path.equals("/styles/payments_and_table.css") && !path.equals("/styles/register_styles.css")
+                && !path.equals("/styles/fill_up_balance.css") && !path.equals("/styles/auth_styles.css")
+                && !path.equals("/images/air_gradient.jpg") && !path.equals("/images/Internet-marketing1.jpg")
+                && !path.equals("/images/telefony.png") && !path.equals("/images/television.jpg")
+                && !path.equals("/images/ip-telefony.png")) {
             ((HttpServletResponse)servletResponse).sendRedirect("/forward?action=error");
         }
           else {

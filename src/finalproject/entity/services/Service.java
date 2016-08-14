@@ -2,6 +2,8 @@ package finalproject.entity.services;
 
 import finalproject.entity.services.tarifs.Tarif;
 
+import java.util.ResourceBundle;
+
 /**
  * Abstract class services table services
  *
@@ -58,7 +60,7 @@ public abstract class Service {
      * @return price of this service
     */
 
-    public int getPrice() {
+    public double getPrice() {
         return tarif.getPrice(this);
     }
 

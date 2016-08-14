@@ -16,17 +16,18 @@
   <head>
     <title><fmt:message key="form.title.auth"/></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <link rel="stylesheet" href="styles/auth_styles.css" type="text/css" />
   </head>
   <body>
     <mytag:changelanguage url="/auth.jsp" />
     <jsp:include page="main_image.jsp"/>
 
-    <div align="center">
+    <div align="center" id="auth">
         <c:if test="${requestScope.incorrect}">
-            <p><fmt:message key="login.incorrect" /> </p>
+            <p class="incorrect"><fmt:message key="login.incorrect" /> </p>
         </c:if>
         <c:if test="${requestScope.blocked}">
-            <p><fmt:message key="account.blocked" /> </p>
+            <p class="incorrect"><fmt:message key="account.blocked" /> </p>
         </c:if>
      <form method="post" action="/forward">
        <input type="hidden" name="action" value="login"/>

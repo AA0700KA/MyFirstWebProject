@@ -14,7 +14,7 @@ import finalproject.exceptions.NotCurrentServiceException;
 public class InternetTarif implements Tarif {
 
     @Override
-    public int getPrice(Service service) {
+    public double getPrice(Service service) {
         if (service instanceof Internet) {
             return ((Internet)service).getSpeed()*5;
         }

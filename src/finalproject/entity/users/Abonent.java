@@ -21,7 +21,7 @@ public class Abonent extends User {
      *
      */
 
-    private int balance;
+    private double balance;
 
     /**
      * Abonent ststus blocked or unblocked column in users
@@ -39,15 +39,15 @@ public class Abonent extends User {
         this.blocked = blocked;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void updateBalance(int balance) {
+    public void updateBalance(double balance) {
         this.balance = balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance += balance;
     }
 

@@ -15,11 +15,12 @@
 <head>
     <title><fmt:message key="admin.all.users" /> </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../styles/payments_and_table.css" type="text/css" />
 </head>
 <body>
 <mytag:changelanguage url="/forwardUsers?action=users" />
 <jsp:include page="adminPage.jsp"/>
-<div align="center">
+<div align="center" id="center_block">
     <table>
         <tr>
             <td><fmt:message key="id" /> </td>

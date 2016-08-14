@@ -33,7 +33,7 @@ public class Payment {
      * price by tarif column price
      */
 
-    private int price;
+    private double price;
 
     /**
      * Status payment paid or not
@@ -65,11 +65,11 @@ public class Payment {
         this.user = user;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

@@ -107,13 +107,13 @@ public class Test {
     public void payServiceTest() {
         login();
         User user = (User) wrapper.getSession().getAttribute("user");
-        int firstBalance = ((Abonent)user).getBalance();
+        double firstBalance = ((Abonent)user).getBalance();
         wrapper.setAttribute("service_id", "2");
         wrapper.setAttribute("price", "15");
         Command command = new PayServiceCommand();
         command.execute(wrapper, true);
 
-        int secondBalance = ((Abonent)user).getBalance();
+        double secondBalance = ((Abonent)user).getBalance();
         System.out.println(firstBalance + " "  + secondBalance);
         Payment payment = null;
         DAOFactory factory = DAOFactory.getInstance();
@@ -136,10 +136,10 @@ public class Test {
         login();
         User user = (User) wrapper.getSession().getAttribute("user");
         wrapper.setAttribute("update_balance", "50");
-        int firstBalance = ((Abonent)user).getBalance();
+        double firstBalance = ((Abonent)user).getBalance();
         Command command = new FillUpBalanceCommand();
         command.execute(wrapper, true);
-        int secondBalance = ((Abonent)user).getBalance();
+        double secondBalance = ((Abonent)user).getBalance();
         System.out.println(firstBalance + " " + secondBalance);
         Assert.assertTrue(firstBalance + 50 == secondBalance);
     }
@@ -251,7 +251,7 @@ public class Test {
         Television television = new Television();
         television.setCountChanels(14);
         television.setTarif(new TelevisionTarif());
-        Assert.assertEquals(television.getPrice(), 42);
+        Assert.assertEquals(television.getPrice(), 42, 0.1);
     }
 
     @org.junit.Test
@@ -259,7 +259,7 @@ public class Test {
         Internet internet = new Internet();
         internet.setSpeed(100);
         internet.setTarif(new InternetTarif());
-        Assert.assertEquals(internet.getPrice(), 500);
+        Assert.assertEquals(internet.getPrice(), 500, 0.1);
     }
 
     @org.junit.Test
@@ -268,7 +268,7 @@ public class Test {
         telefony.setRoumingMinutes(1);
         telefony.setVideoCall(true);
         telefony.setTarif(new IPTelefonyTarif());
-        Assert.assertEquals(telefony.getPrice(), 46);
+        Assert.assertEquals(telefony.getPrice(), 46, 0.1);
     }
 
 }

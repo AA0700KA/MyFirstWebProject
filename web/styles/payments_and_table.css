@@ -1,0 +1,30 @@
+body {
+    background: url("../images/air_gradient.jpg") repeat-x #93DEF3;
+    color: #3E9ED8;
+}
+
+#center_block table{
+    width: 80%;
+    background-color: aliceblue;
+    margin-top: 20px;
+}
+
+#center_block table td {
+    text-align: center;
+}
+
+#center_block input[type=submit] {
+    padding: 10px;
+    background-color: lightblue;
+    border: 1px solid #3E9ED8;
+    color: #3E9ED8;
+}
+
+#center_block select {
+    height: 20px;
+    text-align: center;
+}
+
+#center_block {
+    margin-top: 15px;
+}

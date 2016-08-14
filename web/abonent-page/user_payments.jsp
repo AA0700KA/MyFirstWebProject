@@ -15,12 +15,21 @@
 <head>
     <title>MyPayments</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../styles/payments_and_table.css" type="text/css"/>
 </head>
 <body>
 <mytag:changelanguage url="/forwardMyPayments?action=my_payments" />
 <jsp:include page="abonentPage.jsp"/>
-    <div align="center">
+    <div align="center" id="center_block">
         <fmt:message key="abonents.pay" var="pay"/>
+
+        <c:if test="${requestScope.pay}">
+            <p><fmt:message key="pay.succsessful" /> </p>
+        </c:if>
+        <c:if test="${requestScope.notPay}">
+            <p><fmt:message key="pay.not.enought" /> </p>
+        </c:if>
+
         <table>
             <tr>
                 <td><fmt:message key="service.upper.case" /> </td>

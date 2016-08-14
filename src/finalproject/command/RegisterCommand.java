@@ -49,7 +49,7 @@ public class RegisterCommand implements Command {
             User payUser = userDAO.getUser(user.getLogin());
             paymentDAO.addPayment(payUser, firstService);
             wrapper.setAttribute("registerResponse", true);
-            return "admin-page/adminPage.jsp";
+            return "admin-page/registration.jsp";
 
         } else if (login.length() == 0 || password.length() == 0 || name.length() == 0) {
             wrapper.setAttribute("incorrect", true);

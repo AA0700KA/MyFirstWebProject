@@ -15,18 +15,24 @@
 <head>
     <title>Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../styles/register_styles.css" type="text/css"/>
 </head>
 <body>
   <mytag:changelanguage url="/admin-page/registration.jsp" />
   <jsp:include page="adminPage.jsp"/>
-    <div align="center">
+
+    <div align="center" id="register">
+
         <c:if test="${requestScope.incorrect}">
             <p><fmt:message key="register.incorrect" /></p>
         </c:if>
         <c:if test="${requestScope.exists}">
             <p><fmt:message key="register.exists" /></p>
         </c:if>
-        <p>${exists}</p>
+        <c:if test="${requestScope.registerResponse}">
+            <p><fmt:message key="register.succsessful" /> </p>
+        </c:if>
+
         <form action="/forward" method="post">
             <input type="hidden" name="action" value="register" />
         <table>

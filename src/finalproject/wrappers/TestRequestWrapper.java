@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class TestRequestWrapper implements IRequestWrapper {
 
+    /**
+     * parameters request
+     */
+
     private Map<String, Object> parameters;
     private HttpSession testSession;
 

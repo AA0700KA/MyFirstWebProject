@@ -1,5 +1,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="mytag" uri="/WEB-INF/halloworldTag.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Andrey
@@ -14,11 +15,15 @@
 <head>
     <title>Fill Balance</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../styles/fill_up_balance.css" type="text/css" />
 </head>
 <body>
 <mytag:changelanguage url="/abonent-page/fill_up_balance.jsp" />
 <jsp:include page="abonentPage.jsp" />
-   <div align="center">
+   <div align="center" id="fill_balance">
+       <c:if test="${requestScope.balance}">
+           <p><fmt:message key="balance.updated" /> </p>
+       </c:if>
    <form action="/forward" method="post">
        <input type="hidden" name="action" value="fill_balance"/>
        <table>
